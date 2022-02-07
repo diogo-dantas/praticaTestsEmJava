@@ -1,4 +1,5 @@
-import static org.junit.jupiter.api.Assertions.*;
+package br.com.alura.tdd.service;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -6,7 +7,6 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 
 import br.com.alura.tdd.modelo.Funcionario;
-import br.com.alura.tdd.service.BonusService;
 
 class BonusServiceTest {
 
