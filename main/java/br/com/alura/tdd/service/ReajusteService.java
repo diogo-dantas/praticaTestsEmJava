@@ -8,18 +8,9 @@ import br.com.alura.tdd.modelo.Funcionario;
 public class ReajusteService {
 
 	public void concederReajuste(Funcionario funcionario, Desempenho desempenho) {
-		if (desempenho == Desempenho.A_DESEJAR) {
-			BigDecimal reajuste = funcionario.getSalario().multiply(new BigDecimal("0.03"));
-			funcionario.reajustarSalario(reajuste);
-		}
-		if (desempenho == Desempenho.BOM) {
-			BigDecimal reajuste = funcionario.getSalario().multiply(new BigDecimal("0.10"));
-			funcionario.reajustarSalario(reajuste);
-		}
-		if (desempenho == Desempenho.OTIMO) {
-			BigDecimal reajuste = funcionario.getSalario().multiply(new BigDecimal("0.30"));
-			funcionario.reajustarSalario(reajuste);
-		}
+		BigDecimal percentualReajuste = desempenho.percentualReajuste();
+		BigDecimal reajuste = funcionario.getSalario().multiply(percentualReajuste);
+		funcionario.reajustarSalario(reajuste);
 	}
 
 }
