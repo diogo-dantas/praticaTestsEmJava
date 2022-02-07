@@ -1,5 +1,6 @@
 package br.com.alura.tdd.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -21,9 +22,9 @@ class BonusServiceTest {
 	@Test
 	void ValidaValoresAcimaDoLimiteParaOBonus() {
 		BonusService bonus = new BonusService();
-		BigDecimal salario = bonus.calcularBonus(new Funcionario("Otavio", LocalDate.now(), new BigDecimal("25000")));
+		assertThrows(IllegalArgumentException.class,
+				() -> bonus.calcularBonus(new Funcionario("Otavio", LocalDate.now(), new BigDecimal("25000"))));
 
-		assertEquals(new BigDecimal("0.00"), salario);
 	}
 
 	@Test
