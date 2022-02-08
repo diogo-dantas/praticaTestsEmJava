@@ -11,9 +11,11 @@ import br.com.alura.tdd.modelo.Funcionario;
 
 class BonusServiceTest {
 
+	private BonusService bonus;
+
 	@Test
 	void ValidaValoresAbaixoDoLimiteParaOBonus() {
-		BonusService bonus = new BonusService();
+		bonus = new BonusService();
 		BigDecimal salario = bonus.calcularBonus(new Funcionario("Otavio", LocalDate.now(), new BigDecimal("8000")));
 
 		assertEquals(new BigDecimal("800.00"), salario);
